@@ -1,0 +1,45 @@
+<div id="loading" *ngIf="!data">
+	<img src="https://i.pinimg.com/originals/42/22/60/4222602995bf3218646ca59bf661a0cf.gif" alt="">
+</div>
+<div class="article">
+	<div class="article-single" *ngFor="let post of posts">
+		<div class="article-header p-4">
+			<h2>
+				<a routerLink="{{ 'bai-viet/'+post.slug }}">
+					{{ post.title }}
+				</a>
+			</h2>
+			<div class="article-description">
+				Đăng bởi <a href="#">{{ post.author }}</a> vào lúc <b>{{ post.posted }}</b> tại <a href="#">{{ post.category }}</a>
+			</div>
+		</div>
+		<hr class="m-0">
+		<div class="article-body">
+			<img src="{{ post.thumbnail }}" class="img-fluid" alt="Responsive image">
+			<p class="mt-4">
+				{{ post.short_desc }}
+			</p>
+			<div class="row">
+				<div class="col-6">
+					Share to:
+					<ul class="share">
+						<li><a href="#"><i class="fab fa-facebook-square"></i></a></li>
+						<li><a href="#"><i class="fab fa-google-plus-square"></i></a></li>
+						<li><a href="#"><i class="fab fa-twitter-square"></i></a></li>
+					</ul>
+				</div>
+				<div class="col-6 text-right">
+					<button class="btn btn-outline-dark" routerLink="{{ 'bai-viet/'+post.slug }}">
+						Đọc thêm →
+					</button>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="text-center mt-4 mb-4">
+		<img src="https://i.imgur.com/11Av27k.gif" alt="" *ngIf="loadingMore">
+	</div>
+	<div class="text-center" *ngIf="!data.last">
+		<button class="btn btn-dark d-block w-100" (click)="loadmore()">Xem thêm </button>
+	</div>
+</div>

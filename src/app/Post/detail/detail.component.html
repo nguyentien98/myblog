@@ -1,0 +1,42 @@
+<div id="loading" *ngIf="!detail">
+	<img src="https://i.pinimg.com/originals/42/22/60/4222602995bf3218646ca59bf661a0cf.gif" alt="">
+</div>
+<div class="article" *ngIf="detail">
+	<div class="article-single">
+		<div class="article-header p-4">
+			<h2>
+				{{ detail.title }}
+			</h2>
+			<div class="article-description">
+				Đăng bởi <a href="#">{{ detail.author }}</a> vào lúc <b>{{ detail.posted }}</b> tại <a href="#">{{ detail.category }}</a>
+			</div>
+		</div>
+		<hr class="m-0">
+		<div class="article-body">
+			<p class="mt-4" [innerHtml]="detail.detail">
+			</p>
+			<div class="row">
+				<div class="col-6">
+					Share to:
+					<ul class="share">
+						<li><a href="#"><i class="fab fa-facebook-square"></i></a></li>
+						<li><a href="#"><i class="fab fa-google-plus-square"></i></a></li>
+						<li><a href="#"><i class="fab fa-twitter-square"></i></a></li>
+					</ul>
+				</div>
+				<div class="col-6 text-right">
+					Tags:
+					<a href="#">
+						IT, Công nghệ, PHP, Javascript
+					</a>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="comments">
+		<h3 class="pb-3">Bình luận</h3>
+		<div class="comment">
+			<div class="fb-comments" data-href="https://developers.facebook.com/docs/plugins/comments#configurator" data-width="100%" data-numposts="15"></div>
+		</div>
+	</div>
+</div>
